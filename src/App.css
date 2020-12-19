@@ -1,0 +1,35 @@
+body {
+    background-image: url("https://cdn.wallpapersafari.com/5/94/unQymT.jpg");
+    margin: 0;
+}
+
+.container {
+    margin: 20px auto;
+    width: 50%;
+    transform: translate(0, 50%);
+}
+
+.search_input {
+    border: none;
+    border-radius: 20px;
+    color: gray;
+    padding: 15px;
+    width: 50%;
+    transform: translate(50%, 0);
+}
+
+.today_weather {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.today_image {
+    width: 150px;
+}
