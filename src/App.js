@@ -4,7 +4,6 @@ import './App.css';
 
 import axios from 'axios';
 
-import SearchCity from './components/SearchCity';
 import TodayWeather from './components/TodayWeather';
 import Days from './components/Days';
 import OtherDayWeather from './components/OtherdayWeather';
@@ -14,37 +13,23 @@ class App extends Component {
     data: []
   }
 
- // des que le composant est chargé
   componentDidMount() {
-    // recupérer les données météo
-    const latitude = 50.4291723;
-    const longitude = 2.8319805;
-    const API = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&lang=fr&exclude=minutely,hourly,alerts?q=Lens&appid=72108e347dc182365f7eb12a2452214b`;
-    axios.get(`${API}`)
+    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Lens&units=metric&appid=72108e347dc182365f7eb12a2452214b&lang=fr`)
     .then(response => {
-      // on met a jour le state
-      this.setState({
-        // on met a jour le tableau des données (aujourd'hui)
-        data: response.data
-      })
+      this.setState({ data: response.data })
     })
   }
   
   render() {
-    const data = this.state.data;
-
-    if (Object.keys(data).length !== 0) {
-      const today = data.current;
-      const todayWeekDay = new Date(today.dt * 1000).toLocaleString("fr-FR", { weekday: "long" });
-
+    if (Object.keys(this.state.data).length !== 0) {
+      console.log(`http://openweathermap.org/img/wn/${this.state.data.weather[0].icon}@2x.png`);
       return (
         <div className="container">
-          <SearchCity />
           <TodayWeather
-          image={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`}
-          name={data.name}
-          temp={data.current.temp}
-          description={data.current.weather[0].description} />
+          name={this.state.data.name}
+          image={`http://openweathermap.org/img/wn/${this.state.data.weather[0].icon}@2x.png`}
+          temp={this.state.data.main.temp}
+          description={this.state.data.weather[0].description} />
           <Days />
           <OtherDayWeather />
         </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodayWeather extends Component {
     render() {
-        const {image, temp, description} = this.props;
+        const {name, image, temp, description} = this.props;
         return ( 
             <div className="today_weather">
                 <div className="today_time">
