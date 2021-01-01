@@ -9,16 +9,7 @@ body {
     transform: translate(0, 50%);
 }
 
-.search_input {
-    border: none;
-    border-radius: 20px;
-    color: gray;
-    padding: 15px;
-    width: 50%;
-    transform: translate(50%, 0);
-}
-
-.today_weather {
+.today-weather {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -30,6 +21,6 @@ body {
     margin-top: 50px;
 }
 
-.today_image {
-    width: 150px;
+.today-image {
+    width: 200px;
 }
